@@ -11,9 +11,8 @@ $(function() {
     
   });
     
-    //To remove the line item when user clicks the Delete button
-    $('.shopping-item-delete').on('click', removeListItem);
-    
+  //To remove the line item when user clicks the Delete button
+  $('.shopping-item-delete').on('click', removeListItem); 
     function removeListItem() {
          // function targets that list item
          $( event.target ).closest( "li" );
