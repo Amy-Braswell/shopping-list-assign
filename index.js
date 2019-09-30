@@ -12,12 +12,14 @@ $(function() {
   });
     
   //To remove the line item when user clicks the Delete button
-  $('.shopping-item-delete').on('click', removeListItem); 
+  $('.shopping-item-delete').on('click', removeListItem);
     function removeListItem() {
          // function targets that list item
          $( event.target ).closest( "li" );
          // removes that li 
          $('li').click(function(event) {
              this.remove();
-           });
-    }
+        });
+    };
+
+ 
