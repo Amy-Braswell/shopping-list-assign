@@ -25,19 +25,22 @@ $(function() {
 });
 
 //To strikethough the list item text when user clicks the 'Check' button 
-$('.shopping-item-toggle').on('click', strikeListItem);
+//Attaches event listener to <ul> because <li's> will be added by user after page loads
+// Line 31 is "$('ul').on('click', '.shopping-item-toggle', strikeListItem);" INSTEAD OF
+// "$('.shopping-item-toggle').on('click', strikeListItem);"  because Line 30 (here) doesn't use event delegation
+$('ul').on('click', '.shopping-item-toggle', strikeListItem);
   function strikeListItem() {
   //creates variable to find the <li> that contains the delete button which was clicked.
-  const closestParentLI = $( event.target ).closest( "li" );
+  const closestParentLI = $(this).closest("li");
   //finds the span with the class "shopping-item" within the SAME <li> and toggles the class
   closestParentLI.find("span.shopping-item").toggleClass('shopping-item__checked');
   };
 
 //To remove the list item when user clicks the 'Delete' button
-$('.shopping-item-delete').on('click', removeListItem);
+$('ul').on('click','.shopping-item-delete', removeListItem);
   function removeListItem() {
   // function targets that list item and ONLY that list item
-  $( event.target ).closest( "li" ).remove();
+  $(this).closest("li").remove();
   };
 
 
